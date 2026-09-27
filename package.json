@@ -1,0 +1,14 @@
+{
+  "name": "kwikpik",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev:demo": "pnpm --filter @kwikpik/demo dev",
+    "storybook": "pnpm --filter @kwikpik/ui storybook",
+    "build-storybook": "pnpm --filter @kwikpik/ui build-storybook",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

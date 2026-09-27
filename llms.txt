@@ -1,0 +1,16 @@
+# Kwikpik
+
+> Nigerian fintech + logistics company. This repo hosts the Kwikpik design system: a Tailwind + Radix component library (`packages/ui`) generated from the Kwikpik Web3 Figma file, for the B2B/Finance dashboard, Logistics portal, marketing website, and mobile app.
+
+## For AI agents
+
+- [AGENTS.md](./AGENTS.md): full design-system guide — setup, token philosophy, component-vs-variant rules, when-to-use-what table. Read this first.
+- [packages/ui/registry.json](./packages/ui/registry.json): machine-readable component list — exact import paths, props, variant values, and the real product pattern each one maps to.
+- [docs/design-system/](./docs/design-system/): deeper per-token/per-component reference docs with full Figma provenance.
+
+## Docs
+
+- [docs/flows/business-logic.md](./docs/flows/business-logic.md): confirmed KYC tiers, automation rules, Asset Split logic.
+- [B2B_PLATFORM_UX_CONTEXT.md](./B2B_PLATFORM_UX_CONTEXT.md): full UX audit of the B2B/Finance module.
+- [LOGISTICS_PLATFORM_UX_CONTEXT.md](./LOGISTICS_PLATFORM_UX_CONTEXT.md): full UX audit of the Logistics partner portal.
+- [UNIFIED_ACTION_HUB_SPEC.md](./UNIFIED_ACTION_HUB_SPEC.md): the locked spec for merging both products behind one mode switcher + Action Hub.

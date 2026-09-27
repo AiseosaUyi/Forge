@@ -1,0 +1,205 @@
+/**
+ * Kwikpik design tokens — generated 1:1 from the Figma "Kwikpik Web3" file
+ * (Style Guide canvas → Foundation → Colors/Spacing/Radius/Shadows, and the
+ * Usages semantic variable collection). Do not hand-edit hex/px values here
+ * without updating the Figma source first — see /docs/design-system.
+ */
+
+:root {
+  /* ---- Neutral / Grey ramp ---- */
+  --color-grey-50: #f6f7f7;
+  --color-grey-100: #e3e3e4;
+  --color-grey-200: #c6c7c9;
+  --color-grey-300: #aaacad;
+  --color-grey-400: #8d9092;
+  --color-grey-500: #717477;
+  --color-grey-600: #4f5153;
+  --color-grey-700: #393a3c;
+  --color-grey-800: #222324;
+  --color-grey-900: #0b0c0c;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---- Primary ramp (brand purple) ---- */
+  --color-primary-50: #eeedfb;
+  --color-primary-100: #ccc9f3;
+  --color-primary-200: #aba6ec;
+  --color-primary-300: #8982e4;
+  --color-primary-400: #675edc;
+  --color-primary-500: #564cd8;
+  --color-primary-600: #453dad;
+  --color-primary-700: #342e82;
+  --color-primary-800: #221e56;
+  --color-primary-900: #110f2b;
+
+  /* ---- Secondary ramp (brand orange) ---- */
+  --color-secondary-50: #fcf1ea;
+  --color-secondary-100: #f6d6bf;
+  --color-secondary-200: #f0ba94;
+  --color-secondary-300: #e99e69;
+  --color-secondary-400: #e3833e;
+  --color-secondary-500: #e07529;
+  --color-secondary-600: #b35e21;
+  --color-secondary-700: #864619;
+  --color-secondary-800: #5a2f10;
+  --color-secondary-900: #2d1708;
+
+  /* ---- Blue ramp (info / links) ---- */
+  --color-blue-50: #e6edff;
+  --color-blue-100: #ccdaff;
+  --color-blue-200: #99b5ff;
+  --color-blue-300: #6691ff;
+  --color-blue-400: #336cff;
+  --color-blue-500: #0047ff;
+  --color-blue-600: #0039cc;
+  --color-blue-700: #002b99;
+  --color-blue-800: #001c66;
+  --color-blue-900: #000e33;
+
+  /* ---- Yellow ramp ---- */
+  --color-yellow-50: #fffbe6;
+  --color-yellow-100: #fff7cc;
+  --color-yellow-200: #ffef99;
+  --color-yellow-300: #ffe866;
+  --color-yellow-400: #ffe033;
+  --color-yellow-500: #ffd800;
+  --color-yellow-600: #ccad00;
+  --color-yellow-700: #998200;
+  --color-yellow-800: #665600;
+  --color-yellow-900: #332b00;
+
+  /* ---- Error ramp ---- */
+  --color-error-50: #ffeae6;
+  --color-error-100: #ffd5cc;
+  --color-error-200: #ffab99;
+  --color-error-300: #ff8266;
+  --color-error-400: #ff5833;
+  --color-error-500: #ff2e00;
+  --color-error-600: #cc2500;
+  --color-error-700: #991c00;
+  --color-error-800: #661200;
+  --color-error-900: #330900;
+
+  /* ---- Success ramp ---- */
+  --color-success-50: #e9f7ef;
+  --color-success-100: #d4efdf;
+  --color-success-200: #a9dfbf;
+  --color-success-300: #7dcea0;
+  --color-success-400: #52be80;
+  --color-success-500: #27ae60;
+  --color-success-600: #1f8b4d;
+  --color-success-700: #17683a;
+  --color-success-800: #104626;
+  --color-success-900: #082313;
+
+  /* ---- Warning ramp (orange family — the one live components bind to; see /docs/design-system/tokens/colors.md#known-inconsistency) ---- */
+  --color-warning-50: #fff2e6;
+  --color-warning-100: #ffe6cc;
+  --color-warning-200: #ffcc99;
+  --color-warning-300: #ffb367;
+  --color-warning-400: #ff9934;
+  --color-warning-500: #ff8001;
+  --color-warning-600: #cc6601;
+  --color-warning-700: #994d01;
+  --color-warning-800: #663300;
+  --color-warning-900: #331a00;
+
+  /* ---- Semantic aliases (bound in Figma components — prefer these over raw ramp values) ---- */
+  --text-main: var(--color-grey-900);
+  --text-sub: var(--color-grey-500);
+  --text-sub-text: #727c83;
+  --text-primary: var(--color-primary-900);
+  --text-primary-action: var(--color-primary-500);
+  --text-secondary: var(--color-secondary-900);
+  --text-secondary-action: var(--color-secondary-500);
+  --text-blue: var(--color-blue-900);
+  --text-blue-action: var(--color-blue-500);
+  --text-success: var(--color-success-900);
+  --text-success-action: var(--color-success-500);
+  --text-warning: var(--color-warning-900);
+  --text-warning-action: var(--color-warning-500);
+  --text-error: var(--color-error-900);
+  --text-error-action: var(--color-error-500);
+
+  --card-main: var(--color-white);
+  --card-grey: var(--color-grey-50);
+  --card-surface: var(--color-grey-50);
+  --card-primary-surface: var(--color-primary-50);
+  --card-secondary-surface: var(--color-secondary-50);
+  --card-blue-surface: var(--color-blue-50);
+  --card-yellow-surface: var(--color-yellow-50);
+  --card-error-surface: var(--color-error-50);
+  --card-warning-surface: var(--color-warning-50);
+  --card-success-surface: var(--color-success-50);
+
+  --button-primary-default: var(--color-primary-500);
+  --button-error-default: var(--color-error-500);
+  --button-disabled: var(--color-grey-200);
+
+  --elements-modal: var(--color-white);
+  --elements-stroke: var(--color-grey-100);
+  --elements-icon: var(--color-grey-500);
+
+  /* ---- Spacing scale (8px-leaning, two sub-8 steps) ---- */
+  --spacing-none: 0px;
+  --spacing-xxxsm: 2px;
+  --spacing-xxsm: 4px;
+  --spacing-xsm: 8px;
+  --spacing-sm: 12px;
+  --spacing-normal: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xlg: 56px;
+  --spacing-xxlg: 80px;
+  --spacing-xxxlg: 120px;
+
+  /* ---- Radius scale ---- */
+  --radius-xsm: 4px;
+  --radius-sm: 8px;
+  --radius-normal: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 120px; /* fully-rounded: pills, chips, avatars, circular buttons */
+
+  /* ---- Elevation (single drop-shadows, near-black #0D0B0E) ---- */
+  --shadow-xs: 0px 4px 10px 5px rgba(13, 11, 14, 0.04);
+  --shadow-sm: 0px 4px 20px 10px rgba(13, 11, 14, 0.05);
+  --shadow-md: 0px 5px 30px 10px rgba(13, 11, 14, 0.07);
+  --shadow-normal: 0px -5px 30px 0px rgba(23, 24, 27, 0.1); /* upward — bottom sheets / sticky tab bars */
+  --shadow-lg: 0px 10px 50px 10px rgba(13, 11, 14, 0.1);
+  --shadow-xl: 0px 20px 50px 20px rgba(13, 11, 14, 0.1);
+  --shadow-xxl: 0px 30px 60px 30px rgba(13, 11, 14, 0.1);
+
+  /* ---- Typography ----
+     Two separate type systems, confirmed from Figma (not merged into one
+     "universal" scale — they serve different contexts):
+
+     1. UI scale (--font-sans, Satoshi) — mobile app + web dashboard chrome:
+        buttons, forms, cards, tables, nav. Compact, tops out at 32px.
+     2. Display scale (--font-display, Aeonik) — marketing website headlines
+        only. Sampled directly off the live "Website Remodel" Figma page:
+        real recurring sizes are 88/72/56/40/24/18px Bold, all Aeonik.
+        Website BODY copy is still Satoshi Regular 16px (1,468 uses on that
+        page alone) — Satoshi remains the one shared brand thread; Aeonik is
+        scoped to headline-weight display type only. */
+  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Aeonik", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+
+  /* Display scale — Aeonik Bold, website headlines. Values are the real
+     recurring sizes sampled off "Website Remodel" (node 1122:358), not
+     an invented scale. */
+  /* Line-heights below are the REAL values read off Figma text nodes
+     (not a guessed ratio) — 100% (tight) on every size 40px and up,
+     a normal 133% only on the two smallest (18/24px) sizes. */
+  --text-display-2xl: 88px;   /* hero headline, 29 uses */
+  --text-display-xl: 72px;    /* section headline, 98 uses ("Why People Love Using Kwikpik") */
+  --text-display-l: 56px;     /* subsection headline, 42 uses */
+  --text-display-m: 40px;     /* feature headline, 160 uses — most common display size */
+  --text-display-s: 24px;     /* small headline / large body, 264 uses */
+  --text-display-xs: 18px;    /* eyebrow / label heading, 272 uses */
+  --leading-display-2xl: 88px;  /* 100% */
+  --leading-display-xl: 72px;   /* 100% */
+  --leading-display-l: 56px;    /* 100% */
+  --leading-display-m: 40px;    /* 100% */
+  --leading-display-s: 32px;    /* 133% */
+  --leading-display-xs: 24px;   /* 133% */
+}

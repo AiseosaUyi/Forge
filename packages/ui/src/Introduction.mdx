@@ -1,0 +1,41 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Kwikpik Design System
+
+This is the live, interactive reference for `@kwikpik/ui` — the component
+library backing the B2B/Finance dashboard, Logistics portal, marketing
+website, and mobile app. Every token and component here is generated 1:1
+from the [Kwikpik Web3 Figma file](https://www.figma.com/design/bppFxXazAscyLv3FZvzBf6/Kwikpik-Web3).
+
+- **Foundations** — colors, spacing, radius, elevation, type scale.
+- **Components** — every shipped component, with live prop controls and
+  the exact code needed to use it (see the "Code" tab under each story).
+
+## For developers
+
+```bash
+pnpm add @kwikpik/ui@workspace:*
+```
+
+```ts
+// once, at your app's entry point
+import "@kwikpik/ui/styles.css";
+```
+
+Full setup, token philosophy, and component-vs-variant rules: see
+[`/AGENTS.md`](https://github.com/kwikpik) at the repo root (or open
+`AGENTS.md` directly if you're browsing the repo).
+
+## For AI agents
+
+Don't reverse-engineer a component's API from this site or from source —
+read `packages/ui/registry.json` first. It's the same information,
+structured for programmatic lookup.
+
+## What's not here yet
+
+Table, Navigation shell (Sidebar/Topbar/Mode Switcher), Drawer, Modal,
+charts, Dropdown/Menu, Toast, Pagination — tracked in `registry.json`'s
+`notMigratedYet` list. This site grows as those ship.

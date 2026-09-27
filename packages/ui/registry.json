@@ -1,0 +1,184 @@
+{
+  "$schema": "https://kwikpik.io/design-system/registry.schema.json",
+  "name": "@kwikpik/ui",
+  "version": "0.1.0",
+  "description": "Machine-readable component registry for the Kwikpik design system. Intended for an AI coding agent (or a codegen tool) to look up exact import paths, props, and variant values before writing UI code — read this instead of guessing component APIs from memory.",
+  "source": {
+    "figmaFile": "https://www.figma.com/design/bppFxXazAscyLv3FZvzBf6/Kwikpik-Web3",
+    "figmaStyleGuideNode": "1:4",
+    "tokensCss": "src/styles/tokens.css",
+    "entryCss": "src/styles/globals.css"
+  },
+  "install": {
+    "packageManager": "pnpm",
+    "internal": "workspace:*",
+    "note": "This is a workspace package (packages/ui), not published to npm. Add \"@kwikpik/ui\": \"workspace:*\" to your app's package.json dependencies, then import \"@kwikpik/ui/styles.css\" once at your app's entry point."
+  },
+  "components": [
+    {
+      "name": "Button",
+      "import": "import { Button } from '@kwikpik/ui'",
+      "figmaNode": "1326:36046",
+      "description": "Primary CTA control. Pill-shaped (radius-xl).",
+      "props": {
+        "intent": { "type": "enum", "values": ["primary", "secondary", "destructive", "outline", "ghost"], "default": "primary" },
+        "size": { "type": "enum", "values": ["xl", "l", "sm", "mini"], "default": "l" },
+        "leftIcon": { "type": "ReactNode" },
+        "rightIcon": { "type": "ReactNode" },
+        "asChild": { "type": "boolean", "description": "Render as a different element (e.g. a Next.js Link) via Radix Slot." },
+        "disabled": { "type": "boolean" }
+      },
+      "usage": "Use intent=\"primary\" for the single main action per screen/section. Use \"destructive\" only for irreversible actions (delete, disable 2FA). \"outline\"/\"ghost\" for secondary actions alongside a primary button."
+    },
+    {
+      "name": "Badge",
+      "import": "import { Badge } from '@kwikpik/ui'",
+      "figmaNode": "1507:4203",
+      "description": "Small status/tag pill. Follows the 50-background/900-text semantic color pattern.",
+      "props": {
+        "type": { "type": "enum", "values": ["grey", "completed", "processing", "failed", "blue", "yellow", "secondary"], "default": "grey" },
+        "size": { "type": "enum", "values": ["small", "medium", "mini"], "default": "small" }
+      },
+      "usage": "Map product status vocabulary to type: success/delivered/settled -> completed, pending/awaiting -> processing, failed/cancelled/error -> failed, informational -> blue, neutral/unset -> grey."
+    },
+    {
+      "name": "Alert",
+      "import": "import { Alert } from '@kwikpik/ui'",
+      "figmaNode": "1326:36426",
+      "description": "Inline banner for page/section-level feedback (not a toast).",
+      "props": {
+        "state": { "type": "enum", "values": ["success", "error", "warning", "info"], "default": "info" },
+        "icon": { "type": "ReactNode" },
+        "onClose": { "type": "() => void", "description": "Omit to render a non-dismissible alert." }
+      }
+    },
+    {
+      "name": "Avatar",
+      "import": "import { Avatar } from '@kwikpik/ui'",
+      "figmaNode": "1326:36456",
+      "description": "Discovered mid-audit as a real, fully-built but undocumented Figma component set (18 variants). Renders a photo/logo (src), falling back to initials or a custom icon — never a flat color circle.",
+      "props": {
+        "src": { "type": "string", "description": "Photo, business logo, or service-brand logo URL." },
+        "alt": { "type": "string" },
+        "initials": { "type": "string", "description": "1-2 letters, shown when src is absent/fails to load." },
+        "icon": { "type": "ReactNode", "description": "Alternative fallback for system/generic avatars." },
+        "size": { "type": "enum", "values": ["xsmall", "mini", "small", "normal", "large", "xlarge"], "default": "normal" }
+      }
+    },
+    {
+      "name": "Input",
+      "import": "import { Input } from '@kwikpik/ui'",
+      "figmaNode": "1326:35800",
+      "description": "Text field with label, hint, and error states.",
+      "props": {
+        "label": { "type": "string" },
+        "hint": { "type": "string" },
+        "error": { "type": "string", "description": "When set, overrides hint and applies the error border/text color." },
+        "leftIcon": { "type": "ReactNode" },
+        "rightIcon": { "type": "ReactNode" }
+      }
+    },
+    {
+      "name": "Textarea",
+      "import": "import { Textarea } from '@kwikpik/ui'",
+      "figmaNode": "1326:36015",
+      "description": "Multi-line text field, same label/hint/error API as Input.",
+      "props": { "label": { "type": "string" }, "hint": { "type": "string" }, "error": { "type": "string" } }
+    },
+    {
+      "name": "Checkbox",
+      "import": "import { Checkbox } from '@kwikpik/ui'",
+      "figmaNode": "1326:36055",
+      "description": "Built on Radix Checkbox. Controlled via checked/onCheckedChange.",
+      "props": { "label": { "type": "string" } }
+    },
+    {
+      "name": "RadioGroup / RadioGroupItem",
+      "import": "import { RadioGroup, RadioGroupItem } from '@kwikpik/ui'",
+      "figmaNode": "1326:36104",
+      "description": "Built on Radix RadioGroup. Wrap RadioGroupItem children in a RadioGroup with a shared value/onValueChange.",
+      "props": { "label": { "type": "string", "on": "RadioGroupItem" }, "value": { "type": "string", "on": "RadioGroupItem", "required": true } }
+    },
+    {
+      "name": "Switch",
+      "import": "import { Switch } from '@kwikpik/ui'",
+      "figmaNode": "1326:36122",
+      "description": "Built on Radix Switch. Use for immediate-effect toggles (not form submit).",
+      "props": { "label": { "type": "string" } }
+    },
+    {
+      "name": "Tooltip",
+      "import": "import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@kwikpik/ui'",
+      "figmaNode": "1326:36139",
+      "description": "Built on Radix Tooltip. Wrap your app (or the relevant subtree) once in TooltipProvider.",
+      "props": {}
+    },
+    {
+      "name": "Card (primitives)",
+      "import": "import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@kwikpik/ui'",
+      "figmaNode": "10053:1968",
+      "description": "shadcn-style composable primitives. Use these directly when none of the pre-composed variants below fit.",
+      "props": {}
+    },
+    {
+      "name": "StatCard",
+      "import": "import { StatCard } from '@kwikpik/ui'",
+      "figmaNode": "10053:1965",
+      "description": "Figma Card_Master, Type=Stat. A single metric tile (label + value + optional delta/icon). Source pattern: B2B_PLATFORM_UX_CONTEXT.md §3 (Transactions Made / Avg Transaction Value / Next Payout).",
+      "props": { "label": { "type": "string", "required": true }, "value": { "type": "string", "required": true }, "delta": { "type": "string" }, "icon": { "type": "ReactNode" } }
+    },
+    {
+      "name": "BalanceCard",
+      "import": "import { BalanceCard } from '@kwikpik/ui'",
+      "figmaNode": "pending — built in code first, back-port to Figma next pass",
+      "description": "Wallet/business balance card with multi-asset indicator dots and an action row. Source: B2B_PLATFORM_UX_CONTEXT.md §3 (Fund/Transfer/Swap).",
+      "props": {
+        "label": { "type": "string", "required": true },
+        "value": { "type": "string", "required": true },
+        "assetDots": { "type": "Array<'primary'|'success'|'warning'|'secondary'>" },
+        "actions": { "type": "Array<{label: string, onClick?: () => void}>" }
+      }
+    },
+    {
+      "name": "KycProgressCard",
+      "import": "import { KycProgressCard } from '@kwikpik/ui'",
+      "figmaNode": "pending — built in code first, back-port to Figma next pass",
+      "description": "The 'Verify Account' progress card (0→10→20→25→50→90/100% checklist, B2B_PLATFORM_UX_CONTEXT.md §2). This component renders the summary shell (title, percent, bar, caption, CTA) — the full step-by-step checklist is a separate future 'Stepper' component, not yet built.",
+      "props": {
+        "title": { "type": "string", "required": true },
+        "percent": { "type": "number", "required": true },
+        "stepsLabel": { "type": "string", "required": true },
+        "ctaLabel": { "type": "string" },
+        "onCtaClick": { "type": "() => void" }
+      }
+    },
+    {
+      "name": "InfoCard",
+      "import": "import { InfoCard } from '@kwikpik/ui'",
+      "figmaNode": "10053:1966",
+      "description": "Formalizes the ad hoc 'Info Card' frames used ~30 times across the B2B module Figma pages before this pass.",
+      "props": { "title": { "type": "string", "required": true }, "body": { "type": "string", "required": true }, "linkLabel": { "type": "string" }, "onLinkClick": { "type": "() => void" } }
+    },
+    {
+      "name": "EmptyCard",
+      "import": "import { EmptyCard } from '@kwikpik/ui'",
+      "figmaNode": "10053:1967",
+      "description": "Empty-state pattern used across Payment Links / Customers / Orders / Packages / Returns / Invoices / Exports (B2B and Logistics audits). Always pass a real icon — never a flat color placeholder (see project convention).",
+      "props": {
+        "icon": { "type": "ReactNode", "required": true },
+        "title": { "type": "string", "required": true },
+        "subtitle": { "type": "string", "required": true },
+        "ctaLabel": { "type": "string" },
+        "onCtaClick": { "type": "() => void" }
+      }
+    }
+  ],
+  "notMigratedYet": [
+    "Table (shell + row + cell + filter bar + pagination) — highest-priority next component, needed by every B2B/Logistics list page",
+    "Navigation shell (Sidebar + Topbar + Mode Switcher) — needed for the Unified Portal shell",
+    "Drawer (detail panel) and Modal (transactional flow) overlays",
+    "Data viz: donut chart, bar chart",
+    "Toast/snackbar and Pagination — flagged as net-new, not extracted from an existing Figma pattern",
+    "Dropdown/Menu (Figma 'Menu Dropdown Group - Master' exists, not yet ported to code)"
+  ]
+}
