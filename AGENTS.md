@@ -24,8 +24,18 @@ re-deriving a component's API from its source file.
   step, radius, shadow, and type size as a visual swatch — the fastest
   way to sanity-check a value against Figma without opening Figma. This
   is what to hand a new dev or designer to explore the system
-  interactively; `pnpm build-storybook` produces a static site that can
-  be deployed/shared as a link.
+  interactively.
+  - **Live**: https://forge-demo-nine.vercel.app — deployed via the
+    Vercel project `forge-demo` (org `aiseosauyiidahorgmailcoms-projects`),
+    configured with Root Directory `packages/ui`, Build Command
+    `pnpm build-storybook`, Output Directory `storybook-static`. This is
+    the link to share with the team/designers — do not point it back at
+    `apps/demo`.
+  - Redeploy after any component/token change: `vercel deploy --prod`
+    from the repo root (requires `vercel link --project forge-demo` once
+    per machine). Auto-deploy on push to `main` is not yet confirmed
+    working with these custom build settings — verify a push actually
+    triggers a rebuild before relying on it; redeploy manually if not.
 - **`apps/demo`** — a minimal kitchen-sink page for testing components
   inside a real consuming app (not the primary docs site — use Storybook
   for that).

@@ -5,3 +5,4 @@ dist/
 .turbo/
 .claude/scheduled_tasks.lock
 storybook-static/
+.vercel
