@@ -161,16 +161,22 @@ again first, since both are living documents updated as components ship.
 ## Known gaps / honest caveats
 
 **Pixel-verification pass (2026-09-27):** Button, Badge, Checkbox,
-RadioGroup, Switch, Input, Textarea, Avatar, and Tooltip were re-checked
-against their live Figma node geometry (padding, corner radius, font
-size/weight, exact px dimensions) and corrected where they'd drifted from
-an initial approximation — notably Button's default size was 56px tall
-instead of the real 72px, Badge used Bold instead of the real Medium
-weight, Checkbox/Avatar-xlarge were undersized, and Tooltip was a flat
-grey pill instead of the real dark near-black panel with an arrow. Treat
-these nine as Figma-verified going forward; anything not in that list
-(Alert, Card family) was built from documented values rather than a
-live-node pixel check.
+RadioGroup, Switch, Input, Textarea, Avatar, Tooltip, and **Alert** were
+re-checked against their live Figma node geometry/color bindings and
+corrected where they'd drifted from an initial approximation — notably
+Button's default size was 56px tall instead of the real 72px, Badge used
+Bold instead of the real Medium weight, Checkbox/Avatar-xlarge were
+undersized, Tooltip was a flat grey pill instead of the real dark
+near-black panel with an arrow, and **Alert's border color used the
+{ramp}/100 step (a light color, ~1% contrast against the /50 background —
+effectively invisible) instead of the real {ramp}/500 the Figma node is
+actually bound to.** The Alert case is a good reminder: a barely-visible
+low-contrast token substitution reads as "the border is missing/buggy,"
+not as an obviously-wrong color, so re-verify bindings against the live
+node rather than eyeballing a screenshot. Treat these ten as
+Figma-verified going forward; only the Card family (`StatCard` etc.)
+remains built from documented values rather than a live-node pixel check
+(reasonable since it was authored directly in Figma this same session).
 
 
 - Only `packages/ui`'s **read** components have been round-tripped

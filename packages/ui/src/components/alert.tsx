@@ -6,6 +6,12 @@ import { cn } from "../lib/utils";
  * Alert — maps to Figma "Alert" component set (Base Components section,
  * node 1326:36426). State axis: Success | Error | Warning | Info, each an
  * optional dismissible banner (Close prop).
+ *
+ * Verified exact against the live node: every state binds fill = {ramp}/50,
+ * border = {ramp}/500 (saturated — NOT /100), text = {ramp}/900. An earlier
+ * version used {ramp}/100 for the border, which is barely distinguishable
+ * from the /50 background (near-zero contrast) — that's why the border
+ * looked "missing" rather than a rendering bug. Corrected here.
  */
 const alertVariants = cva(
   "flex items-start gap-3 rounded-[var(--radius-normal)] border p-4 text-[14px] leading-[20px]",
@@ -13,12 +19,12 @@ const alertVariants = cva(
     variants: {
       state: {
         success:
-          "bg-[var(--color-success-50)] border-[var(--color-success-100)] text-[var(--color-success-900)]",
+          "bg-[var(--color-success-50)] border-[var(--color-success-500)] text-[var(--color-success-900)]",
         error:
-          "bg-[var(--color-error-50)] border-[var(--color-error-100)] text-[var(--color-error-900)]",
+          "bg-[var(--color-error-50)] border-[var(--color-error-500)] text-[var(--color-error-900)]",
         warning:
-          "bg-[var(--color-warning-50)] border-[var(--color-warning-100)] text-[var(--color-warning-900)]",
-        info: "bg-[var(--color-blue-50)] border-[var(--color-blue-100)] text-[var(--color-blue-900)]",
+          "bg-[var(--color-warning-50)] border-[var(--color-warning-500)] text-[var(--color-warning-900)]",
+        info: "bg-[var(--color-blue-50)] border-[var(--color-blue-500)] text-[var(--color-blue-900)]",
       },
     },
     defaultVariants: {
